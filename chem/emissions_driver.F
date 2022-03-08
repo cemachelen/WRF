@@ -74,6 +74,8 @@ CONTAINS
          xtime,tslb,wet_in,rainc,rainnc,potevp,sfcevp,lu_index,            &
          biomt_par,emit_par,ebio_co2oce,eghg_bio,                          &
          dust_flux, seas_flux,                                             &
+         ! bbinjectscheme requires record of layer which PBL goes up to
+         lpbl,                                                             & 
          ids,ide, jds,jde, kds,kde,                                        &
          ims,ime, jms,jme, kms,kme,                                        &
          its,ite, jts,jte, kts,kte                                         )
@@ -337,6 +339,9 @@ CONTAINS
      REAL, DIMENSION( ims:ime, kms:kme, jms:jme ),           INTENT(IN   ) :: refl_10cm
 ! end stuff for lightning NOx
 !
+! bbinjectscheme requires record of boundary layer maximum level
+    integer,  DIMENSION( ims:ime , jms:jme ) , intent(in) :: lpbl
+
 ! Local variables...
 !
       INTEGER :: begday,endday,i, j, k, m, p_in_chem, ksub, dust_emiss_active, seasalt_emiss_active,emiss_ash_hgt
@@ -673,6 +678,7 @@ CONTAINS
            config_flags, t_phy,moist,                                      &
            rho_phy,vvel,u_phy,v_phy,p_phy,                                 &
            emis_ant,z_at_w,z,config_flags%scale_fire_emiss,                &
+           lpbl,                                                           &
            ids,ide, jds,jde, kds,kde,                                      &
            ims,ime, jms,jme, kms,kme,                                      &
            its,ite, jts,jte, kts,kte                                       )
