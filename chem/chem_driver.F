@@ -876,6 +876,8 @@
               grid%biomt_par,grid%emit_par,grid%ebio_co2oce,                               &
               eghg_bio,                                                                    &
               grid%dust_flux, grid%seas_flux,                                              &
+         ! bbinjectscheme requires record of layer which PBL goes up to
+              grid%kpbl,                                                                   & 
               ids,ide, jds,jde, kds,kde,                                                   &
               ims,ime, jms,jme, kms,kme,                                                   &
               its,ite,jts,jte,kts,kte)
