@@ -11,7 +11,6 @@ state    real    NC_DIAG         ikj    misc        1         -      h        "N
 rconfig   character  auxinput12_inname   namelist,time_control   1  "wrf_chem_input"   -     "name of auxinput12 infile" ""      ""
 rconfig   integer    io_form_auxinput12  namelist,time_control   1  2
 
-
 state    real    CLDFRA2         ikj    misc        1         -      h        "CLDFRA2"             "CLOUD FRACTION"
 state    real    QV_B4MP         ikj    misc        1         -      -        "QV_B4MP"             "WATER VAPOR BEFORE MICROPHYSICS"  "kg kg-1"
 state    real    QC_B4MP         ikj    misc        1         -      -        "QC_B4MP"             "CLOUD WATER BEFORE MICROPHYSICS"  "kg kg-1"
@@ -3847,6 +3846,8 @@ rconfig   integer     aer_ra_feedback     namelist,chem          max_domains    
 rconfig   integer     aer_op_opt          namelist,chem          max_domains    1       rh    "aer_op_opt"          ""      ""
 rconfig   integer     opt_pars_out        namelist,chem          1    0       h    "opt_pars_out"          ""      ""
 rconfig   integer     diagnostic_dep      namelist,chem          max_domains    0       rh    "diagnostic_dep"     ""      ""
+
+rconfig   integer     bbinjectscheme      namelist,chem          max_domains    4       rh    "bbinjectscheme"      ""      ""
 
 # aircraft emissions
 rconfig   integer    aircraft_emiss_opt           namelist,chem    max_domains  0                                     rh    "aircraft_emiss_opt"                      ""    ""
